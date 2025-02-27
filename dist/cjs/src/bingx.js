@@ -6,7 +6,7 @@ var Precise = require('./base/Precise.js');
 var sha256 = require('./static_dependencies/noble-hashes/sha256.js');
 var number = require('./base/functions/number.js');
 
-// ----------------------------------------------------------------------------
+//  ---------------------------------------------------------------------------
 //  ---------------------------------------------------------------------------
 /**
  * @class bingx
@@ -4686,7 +4686,7 @@ class bingx extends bingx$1 {
         }
         else if (type === 'spot') {
             if (limit !== undefined) {
-                request['limit'] = limit;
+                request['pageSize'] = limit;
             }
             response = await this.spotV1PrivateGetTradeHistoryOrders(this.extend(request, params));
             //

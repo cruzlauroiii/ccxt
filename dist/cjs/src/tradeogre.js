@@ -4,7 +4,7 @@ var tradeogre$1 = require('./abstract/tradeogre.js');
 var errors = require('./base/errors.js');
 var number = require('./base/functions/number.js');
 
-// ----------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 // ---------------------------------------------------------------------------
 /**
  * @class tradeogre
@@ -515,12 +515,12 @@ class tradeogre extends tradeogre$1 {
             throw new errors.BadRequest(this.id + ' createOrder does not support market orders');
         }
         if (price === undefined) {
-            throw new errors.ArgumentsRequired(this.id + ' createOrder requires a limit parameter');
+            throw new errors.ArgumentsRequired(this.id + ' createOrder requires a price parameter');
         }
         const request = {
             'market': market['id'],
-            'quantity': this.parseToNumeric(this.amountToPrecision(symbol, amount)),
-            'price': this.parseToNumeric(this.priceToPrecision(symbol, price)),
+            'quantity': this.amountToPrecision(symbol, amount),
+            'price': this.priceToPrecision(symbol, price),
         };
         let response = undefined;
         if (side === 'buy') {
